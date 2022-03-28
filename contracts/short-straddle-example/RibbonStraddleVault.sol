@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity =0.8.4;
+pragma solidity =0.8.13;
 pragma experimental ABIEncoderV2;
 
 import {SafeMath} from "@openzeppelin/contracts/utils/math/SafeMath.sol";
@@ -12,7 +12,7 @@ import {ShareMath} from "../V2/libraries/ShareMath.sol";
 import {IRibbonVault} from "../V2/interfaces/IRibbonVault.sol";
 import {RibbonVaultBase} from "../V2/base/RibbonVaultBase.sol";
 
-contract RibbonStraddleVault is RibbonVaultBase {
+contract RibbonPPNVault is RibbonVaultBase {
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
     using ShareMath for Vault.DepositReceipt;
@@ -192,8 +192,8 @@ contract RibbonStraddleVault is RibbonVaultBase {
         vaultState.lockedAmount = uint104(lockedBalance);
 
         // TODO: REQUIRE ROLLING BEFORE UNDERLYING VAULTS
-        // TODO: CONVERT SOME USDC TO ETH FOR COVERED CALL VAULT (using uni / sushi / etc)
-        // TODO: DEPOSIT NEW FUNDS INTO VAULTS
+        // TODO: CONVERT SOME USDC TO ETH TO PARTICIPATE 
+        // TODO: BUY FROM CALL VAULT
     }
 
     /************************************************

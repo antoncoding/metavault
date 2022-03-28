@@ -22,8 +22,8 @@ const main = async ({
     from: deployer,
   });
 
-  await deploy("RibbonStraddleVault", {
-    contract: "RibbonStraddleVault",
+  await deploy("RibbonPPNVault", {
+    contract: "RibbonPPNVault",
     from: deployer,
     args: [weth, usdc],
     libraries: {
@@ -31,6 +31,6 @@ const main = async ({
     },
   });
 };
-main.tags = ["RibbonStraddleVaultLogic"];
+main.tags = ["RibbonPPNVaultLogic"];
 
 export default main;

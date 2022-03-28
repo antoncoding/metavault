@@ -26,11 +26,11 @@ const main = async ({
   const weth = isMainnet ? WETH_ADDRESS : KOVAN_WETH;
   const usdc = isMainnet ? USDC_ADDRESS : KOVAN_USDC;
 
-  const logicDeployment = await deployments.get("RibbonStraddleVaultLogic");
+  const logicDeployment = await deployments.get("RibbonPPNVaultLogic");
   const lifecycle = await deployments.get("VaultLifecycle");
 
-  const RibbonStraddleVault = await ethers.getContractFactory(
-    "RibbonStraddleVault",
+  const RibbonPPNVault = await ethers.getContractFactory(
+    "RibbonPPNVault",
     {
       libraries: {
         VaultLifecycle: lifecycle.address,
@@ -56,7 +56,7 @@ const main = async ({
       cap: BigNumber.from(10).pow(12),
     },
   ];
-  const initData = RibbonThetaVault.interface.encodeFunctionData(
+  const initData = RibbonPPNVault.interface.encodeFunctionData(
     "initialize",
     initArgs
   );
@@ -68,6 +68,6 @@ const main = async ({
   });
 };
 main.tags = ["RibbonETHStraddleVault"];
-main.dependencies = ["RibbonStraddleVaultLogic"];
+main.dependencies = ["RibbonPPNVaultLogic"];
 
 export default main;

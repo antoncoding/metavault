@@ -25,7 +25,7 @@ const gasPrice = parseUnits("1", "gwei");
 const FEE_SCALING = BigNumber.from(10).pow(6);
 const WEEKS_PER_YEAR = 52142857;
 
-describe("RibbonStraddleVault", () => {
+describe("RibbonPPNVault", () => {
   behavesLikeRibbonOptionsVault({
     name: `Ribbon ETH Straddle Vault`,
     tokenName: "Ribbon ETH Straddle Vault",
@@ -186,7 +186,7 @@ function behavesLikeRibbonOptionsVault(params: {
 
       vault = (
         await deployProxy(
-          "RibbonStraddleVault",
+          "RibbonPPNVault",
           adminSigner,
           initializeArgs,
           deployArgs,
@@ -234,7 +234,7 @@ function behavesLikeRibbonOptionsVault(params: {
 
       time.revertToSnapshotAfterEach(async function () {
         const RibbonThetaVault = await ethers.getContractFactory(
-          "RibbonStraddleVault",
+          "RibbonPPNVault",
           {
             libraries: {
               VaultLifecycle: vaultLifecycleLib.address,

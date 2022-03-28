@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity =0.8.4;
+pragma solidity =0.8.13;
 pragma experimental ABIEncoderV2;
 
 import {SafeMath} from "@openzeppelin/contracts/utils/math/SafeMath.sol";
@@ -28,7 +28,7 @@ library VaultLifecycle {
         Vault.VaultState calldata vaultState
     )
         external
-        view
+        pure
         returns (
             uint256 newLockedAmount,
             uint256 newPricePerShare,
